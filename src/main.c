@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
   strcspn() gives string length of <command> up to <"\n"> (given punctuation).
   The character at that location in command (command[#]="\n") is replaced with null terminator.
   */
-  command[strcspn(command, "\n")] = "\0";
+  command[strcspn(command, "\n")] = '\0'; // Double quotes and single quotes are different!
   printf("%s: command not found", command);
 
   return 0;
