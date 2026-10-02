@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h> //For strcspn() in step 2
 
 int main(int argc, char *argv[]) {
   // Flush after every printf
@@ -17,7 +18,7 @@ int main(int argc, char *argv[]) {
   strcspn() gives string length of <command> up to <"\n"> (given punctuation).
   The character at that location in command (command[#]="\n") is replaced with null terminator.
   */
-  command[strcspn(command, "\n")]="\0";
+  command[strcspn(command, "\n")] = "\0";
   printf("%s: command not found", command);
 
   return 0;
