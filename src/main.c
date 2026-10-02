@@ -4,11 +4,11 @@
 
 int main(int argc, char *argv[]) {
   // Flush after every printf
-  while (1) {
+  char command[1024]; // Will creating this array at the beginning cause replacement errors?
+  while (!(strcmp(command, "exit"))) {
     setbuf(stdout, NULL);
 
     printf("$ ");
-    char command[1024];
     /* Why fgets()?
     Use fgets() instead of scanf() because scanf() does parsing, fgets just reads the line.
     Parsing will have to be done later, and it's different for different commands.
@@ -20,6 +20,10 @@ int main(int argc, char *argv[]) {
     The character at that location in command (command[#]="\n") is replaced with null terminator.
     */
     command[strcspn(command, "\n")] = '\0'; // Double quotes and single quotes are different!
+    
+    if (!(strcmp(command, "exit"))){
+      break;
+    }
     printf("%s: command not found\n", command);
   }
 
