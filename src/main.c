@@ -20,13 +20,25 @@ int main(int argc, char *argv[]) {
     The character at that location in command (command[#]="\n") is replaced with null terminator.
     */
     input[strcspn(input, "\n")] = '\0'; // Double quotes and single quotes are different!
+    
+    /* "Implement echo" Hint Deviation
+    They had:
+      if (strncmp(input, "echo ", 5) == 0) {
+        printf("%s", input + 5);
+      }
+    Using pointer addition. This hard codes the condition to involve five characters and will be refactored.
+    */
     char * command = strtok(input, " ");
     char * parameters = strtok(NULL, "");
     
     if (strcmp(input, "exit")==0) {
       break;
-    } else if (strcmp(command, "echo")==0){
+    } else if (strcmp(command, "echo")==0){ // Maybe comparing the command will refactor into a switch-case system 
       printf("%s\n", parameters);
+    } else if (strcmp(command, "type")==0){
+      if (strcmp(parameters, "echo")==0 || (strcmp(parameters, "exit"))==0) {
+        printf("type %s is a shell builtin", parameters);
+      }
     } else {
       printf("%s: command not found\n", command);
     }
