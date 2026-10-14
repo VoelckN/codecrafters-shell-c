@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
     } else if (strcmp(command, "echo")==0){ // Maybe comparing the command will refactor into a switch-case system 
       printf("%s\n", parameters);
     } else if (strcmp(command, "type")==0){
-      if (strcmp(parameters, "echo")==0 || (strcmp(parameters, "exit"))==0) {
+      if (strcmp(parameters, "echo")==0 || (strcmp(parameters, "exit"))==0 || strcmp(parameters, "type")==0) {
         printf("%s is a shell builtin\n", parameters);
       }
     } else {
