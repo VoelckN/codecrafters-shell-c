@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
       printf("%s\n", parameters);
     } else if (strcmp(command, "type")==0){
       if (strcmp(parameters, "echo")==0 || (strcmp(parameters, "exit"))==0) {
-        printf("type %s is a shell builtin", parameters);
+        printf("%s is a shell builtin", parameters);
       }
     } else {
       printf("%s: command not found\n", command);
